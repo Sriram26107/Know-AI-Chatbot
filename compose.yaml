@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    image: know-ai:lesson3
+    container_name: know-ai-app
+
+    ports:
+      - "5000:5000"
+
+    env_file:
+      - .env
+
+    environment:
+      DATABASE_URL: ${DATABASE_DOCKER_URL}
+      OLLAMA_HOST: http://host.docker.internal:11434
+
+    volumes:
+      - know_ai_uploads:/app/uploads
+
+    restart: unless-stopped
+
+volumes:
+  know_ai_uploads:

@@ -1,0 +1,39 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python generated files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Uploaded documents
+uploads/*
+!uploads/.gitkeep
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Local application data
+instance/
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Local test scripts
+test_*.py
+
+# Local test documents
+Ex.txt
+Test1.txt
+rag_test.txt
+test.txt

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | Knowledge AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-brand-panel">
+            <div class="brand">
+                <span class="brand-mark">✦</span>
+                <span>Knowledge AI</span>
+            </div>
+            <div class="auth-presentation">
+                <span class="eyebrow">YOUR PERSONAL AI WORKSPACE</span>
+                <h1>Your knowledge.<br>One intelligent place.</h1>
+                <p>Chat with your documents, explore ideas and get answers powered by AI.</p>
+                <div class="feature-pills">
+                    <span>✦ AI conversations</span>
+                    <span>▤ Document intelligence</span>
+                    <span>⌘ Personal knowledge</span>
+                </div>
+            </div>
+            <p class="brand-footer">Your ideas, connected.</p>
+        </section>
+
+        <section class="auth-form-panel">
+            <div class="auth-card">
+                <div class="auth-mobile-brand">
+                    <span class="brand-mark">✦</span> Knowledge AI
+                </div>
+
+                <span class="eyebrow">WELCOME BACK</span>
+                <h2>Sign in to your account</h2>
+                <p class="auth-subtitle">Continue your conversations and discover more.</p>
+
+                <form id="loginForm">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="you@example.com" autocomplete="email" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password"
+                           placeholder="Enter your password"
+                           autocomplete="current-password" required>
+
+                    <div class="auth-options">
+                        <label class="remember-option">
+                            <input type="checkbox" id="rememberMe">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <button class="primary-button" type="submit" id="loginButton">
+                        Sign in <span>→</span>
+                    </button>
+                    <p id="authStatus" class="form-status" role="status"></p>
+                </form>
+
+                <div class="auth-divider"><span>NEW TO KNOWLEDGE AI?</span></div>
+
+                <a href="/register" class="secondary-button auth-secondary">
+                    Create an account
+                </a>
+
+                <p class="auth-terms">
+                    By continuing, you agree to use this service responsibly.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}" defer></script>
+</body>
+</html>

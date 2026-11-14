@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account | Knowledge AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-brand-panel">
+            <div class="brand">
+                <span class="brand-mark">✦</span>
+                <span>Knowledge AI</span>
+            </div>
+            <div class="auth-presentation">
+                <span class="eyebrow">START SOMETHING INTELLIGENT</span>
+                <h1>Bring your knowledge<br>to life.</h1>
+                <p>Create your workspace and let AI help you understand your information.</p>
+                <div class="feature-pills">
+                    <span>✦ Ask questions</span>
+                    <span>▤ Upload documents</span>
+                    <span>⌘ Save conversations</span>
+                </div>
+            </div>
+            <p class="brand-footer">A smarter way to work with information.</p>
+        </section>
+
+        <section class="auth-form-panel">
+            <div class="auth-card">
+                <div class="auth-mobile-brand">
+                    <span class="brand-mark">✦</span> Knowledge AI
+                </div>
+
+                <span class="eyebrow">GET STARTED</span>
+                <h2>Create your account</h2>
+                <p class="auth-subtitle">Your personal AI workspace is just a few steps away.</p>
+
+                <form id="registerForm" method="post">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text"
+                           placeholder="Your name" autocomplete="username" required>
+
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="you@example.com" autocomplete="email" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password"
+                           placeholder="Create a password" autocomplete="new-password"
+                           minlength="8" required>
+
+                    <label for="confirmPassword">Confirm password</label>
+                    <input id="confirmPassword" type="password"
+                           placeholder="Enter your password again"
+                           autocomplete="new-password" required>
+
+                    <button class="primary-button" type="submit" id="registerButton">
+                        Create account <span>→</span>
+                    </button>
+                    <p id="authStatus" class="form-status" role="status"></p>
+                </form>
+
+                <div class="auth-divider"><span>ALREADY HAVE AN ACCOUNT?</span></div>
+
+                <a href="/login" class="secondary-button auth-secondary">
+                    Sign in
+                </a>
+
+                <p class="auth-terms">Your account details are handled by your application.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}" defer></script>
+</body>
+</html>

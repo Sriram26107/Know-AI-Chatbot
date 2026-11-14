@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Know AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="chat-page">
+
+<div class="app-shell">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <a href="/chat" class="brand">
+
+                <span class="brand-mark">✦</span>
+
+                <span>Know AI</span>
+
+            </a>
+
+            <button class="icon-button mobile-close"
+                    id="closeSidebar"
+                    type="button">✕</button>
+
+        </div>
+
+
+        <button class="new-chat-button"
+                id="createChatButton"
+                type="button">
+
+            ＋ New chat
+
+        </button>
+
+
+        <button class="sidebar-action"
+                id="searchChatsButton"
+                type="button">
+
+            ⌕ Search chats
+
+        </button>
+
+
+        <div class="sidebar-label">RECENT</div>
+
+        <div class="chat-list" id="chatList"></div>
+
+
+        <div class="sidebar-footer">
+
+            <div class="profile-avatar">U</div>
+
+            <div class="profile-info">
+
+                <strong>My Account</strong>
+
+                <small>Personal workspace</small>
+
+            </div>
+
+            <button class="icon-button"
+                    id="logoutButton"
+                    type="button"
+                    title="Sign out">↪</button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-panel">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="icon-button mobile-menu"
+                        id="openSidebar"
+                        type="button">☰</button>
+
+                <span class="topbar-title">Know AI</span>
+
+                <span class="ai-badge">AI</span>
+
+            </div>
+
+            <button class="icon-button"
+                    id="themeButton"
+                    type="button"
+                    title="Toggle theme">☼</button>
+
+        </header>
+
+
+        <section class="conversation-area" id="conversationArea">
+
+            <div class="welcome-screen" id="welcomeScreen">
+
+                <div class="welcome-symbol">✦</div>
+
+                <h1>What can I help with?</h1>
+
+                <p>
+                    Welcome to Know AI. Ask anything, explore ideas,
+                    or upload a document to get started.
+                </p>
+
+
+                <div class="suggestion-grid">
+
+                    <button class="suggestion-card"
+                            data-prompt="Summarize my uploaded document"
+                            type="button">
+
+                        <span>▤</span>
+
+                        <strong>Understand documents</strong>
+
+                        <small>Summarize and explain your files</small>
+
+                    </button>
+
+
+                    <button class="suggestion-card"
+                            data-prompt="Explain this topic with a simple example"
+                            type="button">
+
+                        <span>✧</span>
+
+                        <strong>Learn something</strong>
+
+                        <small>Understand topics step by step</small>
+
+                    </button>
+
+
+                    <button class="suggestion-card"
+                            data-prompt="Help me write and improve my code"
+                            type="button">
+
+                        <span>⌘</span>
+
+                        <strong>Write and create</strong>
+
+                        <small>Get help with writing and coding</small>
+
+                    </button>
+
+
+                    <button class="suggestion-card"
+                            data-prompt="Help me solve this problem"
+                            type="button">
+
+                        <span>◈</span>
+
+                        <strong>Ask anything</strong>
+
+                        <small>Explore ideas and solve problems</small>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="messages"
+                 id="chatBox"
+                 aria-live="polite"></div>
+
+
+            <div class="typing-indicator"
+                 id="loadingIndicator"
+                 hidden>
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+                <small>Know AI is thinking...</small>
+
+            </div>
+
+        </section>
+
+
+        <footer class="composer-area">
+
+
+            <!-- Pending attachment preview -->
+
+            <div id="pendingAttachment"
+                 class="pending-attachment"
+                 hidden>
+
+                <div class="pending-file-icon">▤</div>
+
+                <div class="pending-file-info">
+
+                    <strong id="pendingFileName"></strong>
+
+                    <small>Ready to send</small>
+
+                </div>
+
+                <button type="button"
+                        id="removeAttachmentButton"
+                        title="Remove attachment">✕</button>
+
+            </div>
+
+
+            <!-- Hidden file input -->
+
+            <input type="file"
+                   id="documentInput"
+                   accept=".pdf,.docx,.txt"
+                   hidden>
+
+
+            <!-- Composer -->
+
+            <div class="composer">
+
+                <button class="attach-button"
+                        id="attachButton"
+                        type="button"
+                        title="Attach document">＋</button>
+
+
+                <textarea id="messageInput"
+                          rows="1"
+                          placeholder="Message Know AI..."
+                          aria-label="Type your message"></textarea>
+
+
+                <button class="send-button"
+                        id="sendButton"
+                        type="button"
+                        title="Send message">↑</button>
+
+            </div>
+
+
+            <div class="composer-bottom">
+
+                <button class="text-button"
+                        id="uploadButton"
+                        type="button">
+
+                    ＋ Upload document
+
+                </button>
+
+                <span>
+                    AI can make mistakes. Verify important information.
+                </span>
+
+            </div>
+
+
+            <p id="uploadStatus"
+               class="status-message"
+               role="status"></p>
+
+
+            <p id="documentsStatus"
+               class="status-message"
+               role="status"></p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"
+        defer></script>
+
+</body>
+</html>
